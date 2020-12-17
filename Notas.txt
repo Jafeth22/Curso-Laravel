@@ -1,0 +1,31 @@
+•Para instalar Laravel
+composer create-project laravel/laravel nombreProyecto --prefer-dist
+
+•Para instalar una versión específica de Laravel
+composer create-project laravel/laravel nombreProyecto "5.2.*"
+
+------------------------------------------------------------------------------------------------------------
+
+CREAR HOST VIRTUALES
+    •Paso 1: Ir a: D:/xampp/htdocs/resto de la ruta del proyecto
+    •Paso 2: Crear el host
+    •Paso 3: C:\Windows\System32\drivers\etc\hosts
+    •Paso 4: (Abrir en Admin) Añadir la IP y las url.
+    •Paso 5: Abrir el nuevo URL en el navegador
+
+------------------------------------------------------------------------------------------------------------
+Carpetas/Archivos:
+•App: Contiene el código principal de la aplicación
+    -Http: Tiene los controladores y Middleware
+        -Middleware: Que se ejecute algo antes que se ejecute el controlador, como permisos, tokens...
+
+•routes/web.php: Contiene las rutas para la aplicación
+
+•database: Para modificar datos en la BD
+
+•public: La única que va a estar visible en el serv web
+    -Ficheros de JS, imágenes
+
+•vendor: Paquetes y referencias que se han aplicado al framework
+
+•.env: Se configura la BD
