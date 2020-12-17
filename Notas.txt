@@ -6,7 +6,7 @@ composer create-project laravel/laravel nombreProyecto "5.2.*"
 
 ------------------------------------------------------------------------------------------------------------
 
-CREAR HOST VIRTUALES
+CREAR HOST VIRTUALES (CON XAMPP)
     •Paso 1: Ir a: D:/xampp/htdocs/resto de la ruta del proyecto
     •Paso 2: Crear el host
     •Paso 3: C:\Windows\System32\drivers\etc\hosts
