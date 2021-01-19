@@ -7,10 +7,20 @@ composer create-project laravel/laravel nombreProyecto "5.2.*"
 ------------------------------------------------------------------------------------------------------------
 
 CREAR HOST VIRTUALES (CON XAMPP)
-    •Paso 1: Ir a: .../xampp/htdocs/resto de la ruta del proyecto
-    •Paso 2: Crear el host
-    •Paso 3: ...\Windows\System32\drivers\etc\hosts
-    •Paso 4: (Abrir en Admin) Añadir la IP y las url.
+    •Paso 1: Ir a: ...xampp\apache\conf\httpd.conf
+            -Incluier la línea: Include conf/extra/httpd-vhosts.conf o algo relacionado
+    •Paso 2: Ir a: ...xampp\apache\conf\extra\httpd-vhosts.conf
+            -Crear un host como este:
+                #VHOST Curso Laravel
+                <VirtualHost *:80>
+                    DocumentRoot ".../xampp/htdocs/CarpetaDelProyecto/public"
+                    ServerName cursolaravel-1.com
+                    ServerAlias www.cursolaravel-1.com
+                </VirtualHost>
+    •Paso 3: (Abrir en Admin) ...\Windows\System32\drivers\etc\hosts 
+            -Para que redireccione el local host a la nueva URL
+                127.0.0.1 cursolaravel-1.com
+    •Paso 4: Reiniciar XAMPP
     •Paso 5: Abrir el nuevo URL en el navegador
 
 ------------------------------------------------------------------------------------------------------------
