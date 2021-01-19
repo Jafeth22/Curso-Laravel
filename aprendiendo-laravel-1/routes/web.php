@@ -23,9 +23,9 @@ Route::get('/', function () {
 /**
  * In this way, we can use several methods HTTP, but you have to specify which are the methods
  */
-// Route::match(['get', 'post'], 'contacto', function () {
-//     return 'contacto';
-// });
+Route::match(['get', 'post'], 'hola-mundo', function () {
+    return view('hola-mundo');
+});
 
 /** 
  * You just call the function using any method HTTP
