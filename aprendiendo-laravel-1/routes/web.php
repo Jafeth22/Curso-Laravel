@@ -42,7 +42,8 @@ Route::get('contacto/{nombre?}', function ($nombre = "Test Param") {
     //     'nombreHTML' => $nombre
     // ));
     ////SECOND Option
-    return view('contacto')->with('nombreHTML', $nombre); //In case we need to sent more param, just add it below of the first WITH
+    //This is in case the view file is inside a carpet, the structure is: folderName.fileName or folderName/fileName
+    return view('contacto.contacto')->with('nombreHTML', $nombre); //In case we need to sent more param, just add it below of the first WITH
 })->where([
     'nombre' => '[A-Za-z0-9]+' //This helps to filter the values, this param will accept only the letters, for the number will be [0-9]+, the + means indefinite times
 ]);
