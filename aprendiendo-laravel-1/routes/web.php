@@ -36,9 +36,13 @@ Route::any('anyTest', function () {
 
 //This is the way to sent a param, the param could be NULL if you add the ? at the end of the paramName
 Route::get('contacto/{nombre?}', function ($nombre = "Test Param") {
-    return view('contacto', array(
-        'nombreHTML' => $nombre
-    ));
+    //To sent information to the view, we have 2 options
+    ////This is ths FIRST option
+    // return view('contacto', array(
+    //     'nombreHTML' => $nombre
+    // ));
+    ////SECOND Option
+    return view('contacto')->with('nombreHTML', $nombre); //In case we need to sent more param, just add it below of the first WITH
 })->where([
     'nombre' => '[A-Za-z0-9]+' //This helps to filter the values, this param will accept only the letters, for the number will be [0-9]+, the + means indefinite times
 ]);

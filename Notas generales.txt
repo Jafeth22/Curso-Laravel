@@ -24,18 +24,3 @@ CREAR HOST VIRTUALES (CON XAMPP)
     •Paso 5: Abrir el nuevo URL en el navegador
 
 ------------------------------------------------------------------------------------------------------------
-Carpetas/Archivos:
-•App: Contiene el código principal de la aplicación
-    -Http: Tiene los controladores y Middleware
-        -Middleware: Que se ejecute algo antes que se ejecute el controlador, como permisos, tokens...
-
-•routes/web.php: Contiene las rutas para la aplicación
-
-•database: Para modificar datos en la BD
-
-•public: La única que va a estar visible en el serv web
-    -Ficheros de JS, imágenes
-
-•vendor: Paquetes y referencias que se han aplicado al framework
-
-•.env: Se configura la BD
