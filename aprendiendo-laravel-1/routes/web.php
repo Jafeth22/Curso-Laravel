@@ -47,3 +47,18 @@ Route::get('contacto/{nombre?}', function ($nombre = "Test Param") {
 })->where([
     'nombre' => '[A-Za-z0-9]+' //This helps to filter the values, this param will accept only the letters, for the number will be [0-9]+, the + means indefinite times
 ]);
+
+//To call the methods from the controller automatically
+//Route::resource('frutas','FrutasController');
+
+//
+Route::group(['prefix' => 'fruteria'], function () {
+    //To call the method inside the controller, one by one
+    Route::get('/frutas', 'FrutasController@getIndex');
+    //This way we add a middleware
+    Route::get('/naranjas/{admin?}', [
+        'middleware' => 'IsAdmin', //To add a middleware, First, we should add it at Kernel file, section routeMiddleware
+        'uses' => 'FrutasController@getNaranjas'
+    ]);
+    Route::get('/peras', 'FrutasController@anyPeras');
+});

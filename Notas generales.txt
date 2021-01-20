@@ -24,3 +24,8 @@ CREAR HOST VIRTUALES (CON XAMPP)
     •Paso 5: Abrir el nuevo URL en el navegador
 
 ------------------------------------------------------------------------------------------------------------
+Middleware: It's a method that execute before or after execute an action in the controller
+
+------------------------------------------------------------------------------------------------------------
+
+

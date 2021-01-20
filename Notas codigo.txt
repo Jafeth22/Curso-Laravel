@@ -17,3 +17,5 @@ Carpetas/Archivos:
 locationFileProyect (Artisan), this command should be execute in the command line
 •php artisan list //Shows all the commands
 •php artisan make:controller ControllerName //This is to create a controller
+•php artisan make:controller ControllerName --resource //To create the controller with all methods
+•php artisan make:middleware MiddlewareName ///To create a middleware
