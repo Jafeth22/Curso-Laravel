@@ -11,7 +11,7 @@
 
 @section('content')
     
-    <a href="{{action('FrutasController@getNaranjas')}}">Go to Naranjas</a>
+    <a href="{{route('oranges')}}">Go to Naranjas</a>
     <a href="{{action('FrutasController@anyPeras')}}">Go to Peras</a>
 
     <p>List of fruits</p>

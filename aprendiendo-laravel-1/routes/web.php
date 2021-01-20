@@ -58,7 +58,8 @@ Route::group(['prefix' => 'fruteria'], function () {
     //This way we add a middleware
     Route::get('/naranjas/{admin?}', [
         'middleware' => 'IsAdmin', //To add a middleware, First, we should add it at Kernel file, section routeMiddleware
-        'uses' => 'FrutasController@getNaranjas'
+        'uses' => 'FrutasController@getNaranjas',
+        'as' => 'oranges' //This is an alis for the route
     ]);
     Route::get('/peras', 'FrutasController@anyPeras');
 });
