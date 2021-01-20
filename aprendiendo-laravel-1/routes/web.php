@@ -63,3 +63,5 @@ Route::group(['prefix' => 'fruteria'], function () {
     ]);
     Route::get('/peras', 'FrutasController@anyPeras');
 });
+
+Route::post('/receive', 'FrutasController@receiveForms');

@@ -20,4 +20,19 @@
         <li>{{$data}}</li>
     @endforeach
     </ul>
+
+    <h2>Lavarel's Form</h2>
+    <form action="{{url('/receive')}}" method="POST">
+    <p>
+        <label for="fruitName">Fruit Name:</label>
+        <input type="text" name="fruitName">
+    </p>
+        
+    <p>
+        <label for="fruitDescription">Fruit Description:</label>
+        <textarea name="fruitDescription"></textarea>
+    </p>
+
+        <input type="submit" value="Submit values">
+    </form>
 @stop
