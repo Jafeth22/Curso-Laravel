@@ -30,3 +30,10 @@ MIGRATION
 In case we want to alter some table in the DB, we should modify this file: ProyectName\composer.json and add 
 the following line: requiere."doctrine/dbal": "2.12.1"
 Then, execute the following command: composer update
+
+------------------------------------------------------------------------------------------------------------
+SEEDS
+To create test values for the DB
+php artisan make:seeder seederName //To create the file, it will be located: ProyectName\database\seeds
+php artisan db:seed --class=seederNameFile //To execute the sql sentence
+composer dump-autoload //This is in case the above command doesn't work
