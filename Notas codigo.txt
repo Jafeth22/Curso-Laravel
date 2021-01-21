@@ -19,3 +19,14 @@ locationFileProyect (Artisan), this command should be execute in the command lin
 •php artisan make:controller ControllerName //This is to create a controller
 •php artisan make:controller ControllerName --resource //To create the controller with all methods
 •php artisan make:middleware MiddlewareName ///To create a middleware
+•php artisan make:migration create_fruits_table --create=fruits //To create a migration (database) file
+•php artisan migrate //It will execute all migration files located in: proyectName\database\migrations
+•php artisan migrate:status //To know which files are executed
+•php artisan migrate:reset //To remove all executed files of migration
+•php artisan migrate:refresh //In case some migration file is modified
+
+------------------------------------------------------------------------------------------------------------
+MIGRATION
+In case we want to alter some table in the DB, we should modify this file: ProyectName\composer.json and add 
+the following line: requiere."doctrine/dbal": "2.12.1"
+Then, execute the following command: composer update
