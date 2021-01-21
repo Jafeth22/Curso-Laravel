@@ -14,10 +14,16 @@ class AddFieldFruits extends Migration
     public function up()
     {
         //To ALTER a table
-        Schema::table('fruits', function (Blueprint $table) {
-            $table->string('typeFruit')->after('amount');
-            $table->renameColumn('fruitName','name');
-        }); 
+        // Schema::table('fruits', function (Blueprint $table) {
+        //     $table->string('typeFruit')->after('amount');
+        //     $table->renameColumn('fruitName','name');
+        // });
+        DB::statement('
+            CREATE TABLE testSQL(
+                ID INTEGER PRIMARY KEY auto_increment,
+                publish INTEGER
+            );
+        '); 
     }
 
     /**
@@ -27,6 +33,6 @@ class AddFieldFruits extends Migration
      */
     public function down()
     {
-        //
+        //Schema::drop('fruits');
     }   
 }
