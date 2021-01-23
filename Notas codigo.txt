@@ -15,15 +15,15 @@ Carpetas/Archivos:
 •.env: Se configura la BD
 ------------------------------------------------------------------------------------------------------------
 locationFileProyect (Artisan), this command should be execute in the command line
-•php artisan list //Shows all the commands
-•php artisan make:controller ControllerName //This is to create a controller
-•php artisan make:controller ControllerName --resource //To create the controller with all methods
-•php artisan make:middleware MiddlewareName ///To create a middleware
-•php artisan make:migration create_fruits_table --create=fruits //To create a migration (database) file
-•php artisan migrate //It will execute all migration files located in: proyectName\database\migrations
-•php artisan migrate:status //To know which files are executed
-•php artisan migrate:reset //To remove all executed files of migration
-•php artisan migrate:refresh //In case some migration file is modified
+php artisan list //Shows all the commands
+php artisan make:controller ControllerName //This is to create a controller
+php artisan make:controller ControllerName --resource //To create the controller with all methods
+php artisan make:middleware MiddlewareName ///To create a middleware
+php artisan make:migration create_fruits_table --create=fruits //To create a migration (database) file
+php artisan migrate //It will execute all migration files located in: proyectName\database\migrations
+php artisan migrate:status //To know which files are executed
+php artisan migrate:reset //To remove all executed files of migration
+php artisan migrate:refresh //In case some migration file is modified
 
 ------------------------------------------------------------------------------------------------------------
 MIGRATION
@@ -37,3 +37,7 @@ To create test values for the DB
 php artisan make:seeder seederName //To create the file, it will be located: ProyectName\database\seeds
 php artisan db:seed --class=seederNameFile //To execute the sql sentence
 composer dump-autoload //This is in case the above command doesn't work
+
+------------------------------------------------------------------------------------------------------------
+MODELS
+php artisan make:model Comment //To create models
