@@ -50,6 +50,17 @@ Route::get('contacto/{nombre?}', function ($nombre = "Test Param") {
 
 //To call the methods from the controller automatically
 //Route::resource('frutas','FrutasController');
+/*
+    This Route::resource('routeName', 'ControllerName')
+    •Verb 	    •URI 	                 •Action    •Route Name
+    GET 	    /routeName 	             index  	routeName.index
+    GET 	    /routeName/create 	     create     routeName.create
+    POST 	    /routeName 	             store  	routeName.store
+    GET 	    /routeName/{param} 	     show   	routeName.show
+    GET 	    /routeName/{param}/edit  edit   	routeName.edit
+    PUT/PATCH 	/routeName/{param} 	     update     routeName.update
+    DELETE 	    /routeName/{param} 	     destroy    routeName.destroy
+*/
 
 //
 Route::group(['prefix' => 'fruteria'], function () {
@@ -65,3 +76,7 @@ Route::group(['prefix' => 'fruteria'], function () {
 });
 
 Route::post('/receive', 'FrutasController@receiveForms');
+//------------------------------------------------------------------------------------
+Route::resource('notes','NotesController')->except(['update']);
+Route::get('notes/delete/{id}','NotesController@delete');
+Route::post('notes/update/{id}','NotesController@update');
