@@ -41,3 +41,8 @@ composer dump-autoload //This is in case the above command doesn't work
 ------------------------------------------------------------------------------------------------------------
 MODELS
 php artisan make:model Comment //To create models
+
+------------------------------------------------------------------------------------------------------------
+WHEN CHANGE VALUES ON THE FILE ENV
+php artisan config:clear
+php artisan config:cache
