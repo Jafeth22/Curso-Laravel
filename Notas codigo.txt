@@ -46,3 +46,8 @@ php artisan make:model Comment //To create models
 WHEN CHANGE VALUES ON THE FILE ENV
 php artisan config:clear
 php artisan config:cache
+
+------------------------------------------------------------------------------------------------------------
+FOR AUTHENTICATION
+composer require laravel/ui //To create the all thing related to the authentication
+php artisan ui Framework(vue/react) --auth ///To create the views and controllers and add boostrap as additional, it creates with VUE or REACT

@@ -30,7 +30,7 @@ class Video extends Model
     
     public function Commenta2()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     //One to One
