@@ -51,3 +51,4 @@ php artisan config:cache
 FOR AUTHENTICATION
 composer require laravel/ui //To create the all thing related to the authentication
 php artisan ui Framework(vue/react) --auth ///To create the views and controllers and add boostrap as additional, it creates with VUE or REACT
+npm install && npm run dev //To add the libraries
