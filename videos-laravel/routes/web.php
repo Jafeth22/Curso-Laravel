@@ -36,3 +36,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route videoController
+Route::get('/create-video',[
+    'as' => 'createVideo',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'VideoController@createVideo'
+]);
+
+Route::post('/save-video',[
+    'as' => 'saveVideo',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'VideoController@saveVideo'
+]);
