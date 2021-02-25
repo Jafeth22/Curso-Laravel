@@ -27,5 +27,6 @@ CREAR HOST VIRTUALES (CON XAMPP)
 Middleware: It's a method that execute before or after execute an action in the controller
 
 ------------------------------------------------------------------------------------------------------------
-
+Storage (Folder)
+Inside this Folder, all the files will be located inside this folder
 

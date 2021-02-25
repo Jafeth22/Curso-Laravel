@@ -56,3 +56,8 @@ npm install && npm run dev //To add the libraries
 To Install Boostrap
 npm install //This is going to install boostrap and other dependencies
 npm run dev //To compile the files
+
+------------------------------------------------------------------------------------------------------------
+STORAGE
+To save some file here, we should modify
+    •config/filesystems, then section will be "disk", here we are going to add the name of the new folders 
