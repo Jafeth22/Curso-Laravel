@@ -23,5 +23,17 @@ class VideoController extends Controller
             'description' => 'required',
             'video' => 'mimes:mp4', //Specify the format of the videos
         ]);
+
+        $video = new Video();
+        $user = \Auth::user(); //The \ will search the object automatically
+        $video->user_id = $user->id;
+        $video->title = $request->input('title');
+        $video->description = $request->input('description');
+
+        $video->save();
+
+        return redirect()->route('home')->with([
+            'message' => 'The video has uploaded successfully'
+        ]);
     }
 }
