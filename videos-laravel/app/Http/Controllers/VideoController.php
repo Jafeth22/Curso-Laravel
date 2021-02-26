@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Iluminate\Support\Facades\DB;
 use Iluminate\Support\Facades\Storage; //Upload files and save into Storage folder
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 
 use App\Video;
 use App\Comment;
@@ -34,17 +34,18 @@ class VideoController extends Controller
         //Upload the miniature
         $image = $request->file('image');
         if($image){
-            $image_path = date("YmdHis", time()).'-'.$image->getClientOriginalName(); //Concatenates the current date with Name of the item
-            \Storage::disk('images')->put($image_path, \File::get($image));//Storage = Folder, disk = name of the folcer child, images = folder where will be located the images
-            //\File::get($image) = The file by itself
-            $video->image = $image_path;
+            $imageName = date("YmdHis", time()).'-'.$image->getClientOriginalName();
+            $image->storeAs('public/images',$imageName);
+            //\Storage::disk('public')->putFileAs('images', $image, $imageName);
+            $video->image = $imageName;
         }
         //Upload the video
         $videoFile = $request->file('video');
         if($videoFile){
-            $video_OriginalName = date("YmdHis", time()).'-'.$videoFile->getClientOriginalName();
-            \Storage::disk('videos')->put($video_OriginalName, \File::get($videoFile));//Storage = Folder, disk = name of the folcer child, images = folder where will be located the images
-            $video->videoPath = $video_OriginalName;
+            $videoName = date("YmdHis", time()).'-'.$videoFile->getClientOriginalName();
+            //Another way to save files, "READ Notas codigo" file
+            \Storage::disk('public')->putFileAs('videos', $videoFile, $videoName);
+            $video->videoPath = $videoName;
         }
         
         $video->save();
@@ -52,5 +53,14 @@ class VideoController extends Controller
         return redirect()->route('home')->with([
             'messageSuccess' => 'The video has uploaded successfully'
         ]);
+    }
+
+    public function getImage($filename){
+        $path = '/storage/images/'.$filename;
+        // $file = File::get($path);
+        // $type = File::mimeType($path);
+        // $response = Response::make($file, 200);
+        // $response->header("Content-Type", $type);
+        return $path;
     }
 }

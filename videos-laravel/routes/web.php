@@ -49,3 +49,8 @@ Route::post('/save-video',[
     'middleware' => 'auth', //This particular middleware verify if you are login
     'uses' => 'VideoController@saveVideo'
 ]);
+
+Route::get('/miniature/{filename}',[
+    'as' => 'imageVideo',
+    'uses' => 'HomeController@getImage'
+]);

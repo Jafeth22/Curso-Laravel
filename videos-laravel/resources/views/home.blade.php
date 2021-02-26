@@ -14,13 +14,12 @@
 
                 @foreach($videos as $video)
                 <li class="video-item col-md-4 pull left-panel">
-                    <!-- Image of the video -->
+                    <img src="/storage/images/{{$video->Image}}" alt="Image" width="15%">
                     <div class="data">
                         <h4>{{$video->Title}}</h4>
                     </div>
                 </li>
                 <!-- Action buttons -->
-
                 @endforeach
             </ul>
             {{$videos->links()}}

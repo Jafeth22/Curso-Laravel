@@ -61,3 +61,7 @@ npm run dev //To compile the files
 STORAGE
 To save some file here, we should modify
     •config/filesystems, then section will be "disk", here we are going to add the name of the new folders 
+
+Then, execute this command
+php artisan storage:link //This is to link the public folder from storage/app and from root, because in the domain it can't be read
+
