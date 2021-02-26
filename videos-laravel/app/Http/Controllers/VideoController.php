@@ -50,7 +50,7 @@ class VideoController extends Controller
         $video->save();
 
         return redirect()->route('home')->with([
-            'message' => 'The video has uploaded successfully'
+            'messageSuccess' => 'The video has uploaded successfully'
         ]);
     }
 }
