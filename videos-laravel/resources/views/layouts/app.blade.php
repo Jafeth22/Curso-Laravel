@@ -16,6 +16,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Case you want to add new CSS file, both options from below works -->
+    <link href="{{ asset('storage/css/style.css') }}" rel="stylesheet">
+    <!-- <link href="/storage/css/style.css" rel="stylesheet"> -->
 </head>
 
 <body>
