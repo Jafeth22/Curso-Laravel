@@ -54,13 +54,18 @@ class VideoController extends Controller
             'messageSuccess' => 'The video has uploaded successfully'
         ]);
     }
-
-    public function getImage($filename){
-        $path = '/storage/images/'.$filename;
-        // $file = File::get($path);
-        // $type = File::mimeType($path);
-        // $response = Response::make($file, 200);
-        // $response->header("Content-Type", $type);
-        return $path;
+    
+    public function getVideoDetail($id)
+    {
+        $video = Video::find($id);
+        return view('video.details',[
+            'video' => $video
+        ]);
+    }
+    
+    public function getVideoFile($idVideo)
+    {
+        $video = Storage::disk('videos')->get($idVideo);
+        return new Response($video,900);
     }
 }

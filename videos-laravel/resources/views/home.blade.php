@@ -19,7 +19,11 @@
                             <img class="card-img-top" src="/storage/images/{{$video->Image}}" style="width: 7rem;" alt="Image-{{$video->Title}}">
                         </div>
                         <div class="col-md-6">
-                            <h4 class="card-title"><?= $video->Title ? $video->Title : "It doesn't have Title"  ?> </h4>
+                            <h4 class="card-title">
+                                <a href="{{route('videoDetail',['id' => $video->ID])}}">
+                                    <?= $video->Title ? $video->Title : "It doesn't have Title"  ?> 
+                                </a>
+                            </h4>
                             <p class="card-text"><?= $video->user->name.' '.$video->user->surname ?> </p>
                             <a href="" class="btn btn-success">See</a>
                             @if(Auth::check() && Auth::user()->id == $video->user->id)

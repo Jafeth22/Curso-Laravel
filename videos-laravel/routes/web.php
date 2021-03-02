@@ -50,7 +50,12 @@ Route::post('/save-video',[
     'uses' => 'VideoController@saveVideo'
 ]);
 
-Route::get('/miniature/{filename}',[
-    'as' => 'imageVideo',
-    'uses' => 'HomeController@getImage'
+Route::get('/video/{id}',[
+    'as' => 'videoDetail',
+    'uses' => 'VideoController@getVideoDetail'
+]);
+
+Route::get('/videoFile/{idVideo}',[
+    'as' => 'fileVideo',
+    'uses' => 'VideoController@getVideoFile'
 ]);
