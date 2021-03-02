@@ -65,3 +65,13 @@ To save some file here, we should modify
 Then, execute this command
 php artisan storage:link //This is to link the public folder from storage/app and from root, because in the domain it can't be read
 
+------------------------------------------------------------------------------------------------------------
+HELPERS
+Its function is to do a specific task, and do it frecuendly through our whole project
+php artisan make:provider ProviderName
+    •Create the folder 'Helpers' inside App folder, then, create the file
+    •This will create a file inside the folder app/Providers/newProviderFile, then
+    modify the register like FormatTimeServiceProvider.php
+    •Add the new provider at
+        config/app.php //provider's section and add the provider created
+Note, if this doesn't work, just clear cache with the command line

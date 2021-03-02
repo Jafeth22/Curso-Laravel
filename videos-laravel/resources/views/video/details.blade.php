@@ -24,7 +24,7 @@
                     <h2>{{$video->Title}}</h2>
                     Updated by <strong>{{$video->user->name.' '.$video->user->surname}}</strong>
                     <br>
-                    On {{date("Y/m/d", time())}}
+                    <?= \FormatTime::LongTimeFilter($video->Created_at) ?>
                 </div>
             </div>
             <div class="card-body">
