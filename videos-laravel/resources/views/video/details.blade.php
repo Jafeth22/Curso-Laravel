@@ -8,9 +8,6 @@
 
     <div class="col-md-8">
         <!-- Video -->
-        <!-- <div class="col-md-3">
-            <img class="card-img-top" src="/storage/images/{{$video->Image}}" style="width: 7rem;" alt="Image-{{$video->Title}}">
-        </div> -->
         <video controls="true" id="videoPlayer">
             <!-- <source type="video/mp4" src="{{route('fileVideo', ['idVideo' => $video->VideoPath])}}"> </source>-->
             <source src="/storage/videos/{{$video->VideoPath}}">
@@ -22,9 +19,7 @@
             <div class="card-header">
                 <div class="card-title">
                     <h2>{{$video->Title}}</h2>
-                    Updated by <strong>{{$video->user->name.' '.$video->user->surname}}</strong>
-                    <br>
-                    <?= \FormatTime::LongTimeFilter($video->Created_at) ?>
+                    By <strong>{{$video->user->name.' '.$video->user->surname}}</strong> Updated <?= \FormatTime::LongTimeFilter($video->Created_at) ?>
                 </div>
             </div>
             <div class="card-body">
@@ -32,6 +27,7 @@
             </div>
         </div>
         <!-- Comments -->
+        @include('video.comments')
     </div>
 </div>
 @endsection

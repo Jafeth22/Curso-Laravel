@@ -88,6 +88,11 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="col-md-10 offset-md-2">
+            <hr/>
+            <p>Laravel Course</p>
+        </footer>
     </div>
 
     <!-- Scripts -->

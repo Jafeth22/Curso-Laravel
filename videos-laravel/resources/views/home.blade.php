@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 
 <div class="container">
@@ -20,7 +19,7 @@
                         </div>
                         <div class="col-md-6">
                             <h4 class="card-title">
-                                <a href="{{route('videoDetail',['id' => $video->ID])}}">
+                                <a href="{{route('videoDetail',['id' => $video->id])}}">
                                     <?= $video->Title ? $video->Title : "It doesn't have Title"  ?> 
                                 </a>
                             </h4>

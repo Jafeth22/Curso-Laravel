@@ -7,7 +7,7 @@ use Iluminate\Support\Facades\DB;
 use Iluminate\Support\Facades\Storage; //Upload files and save into Storage folder
 use Illuminate\Http\Response;
 
-use App\Video;
+use App\Videos;
 use App\Comment;
 
 class VideoController extends Controller
@@ -25,7 +25,7 @@ class VideoController extends Controller
             //'video' => 'mimes:mp4', //Specify the format of the videos
         ]);
 
-        $video = new Video();
+        $video = new Videos();
         $user = \Auth::user(); //The \ will search the object automatically
         $video->user_id = $user->id;
         $video->title = $request->input('title');
@@ -57,7 +57,7 @@ class VideoController extends Controller
     
     public function getVideoDetail($id)
     {
-        $video = Video::find($id);
+        $video = Videos::find($id);
         return view('video.details',[
             'video' => $video
         ]);

@@ -29,4 +29,7 @@ Middleware: It's a method that execute before or after execute an action in the 
 ------------------------------------------------------------------------------------------------------------
 Storage (Folder)
 Inside this Folder, all the files will be located inside this folder
-
+------------------------------------------------------------------------------------------------------------
+Timezone
+To change the timezone go to the following path:
+    config->app.php, search timezone and change it

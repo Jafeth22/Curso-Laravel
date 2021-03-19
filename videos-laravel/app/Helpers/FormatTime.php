@@ -8,13 +8,13 @@ class FormatTime
 {
     public static function LongTimeFilter($date)
     {
+        //date_default_timezone_set("America/Costa_Rica");
         if ($date == null) {
             return "No Date";
         }
 
         $start_date = date_create($date);;
         $since_start = $start_date->diff(new \DateTime(date("Y-m-d") . " " . date("H:i:s")));
-
         if ($since_start->y == 0) {
             if ($since_start->m == 0) {
                 if ($since_start->d == 0) {
@@ -65,6 +65,6 @@ class FormatTime
             }
         }
 
-        return "Ago ".$result;
+        return $result." ago.";
     }
 }

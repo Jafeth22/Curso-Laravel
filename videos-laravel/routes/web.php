@@ -59,3 +59,9 @@ Route::get('/videoFile/{idVideo}',[
     'as' => 'fileVideo',
     'uses' => 'VideoController@getVideoFile'
 ]);
+
+Route::post('/comment',[
+    'as' => 'comment',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'CommentController@store'
+]);
