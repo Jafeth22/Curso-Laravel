@@ -45,7 +45,7 @@
                                 <div class="modal-footer">
                                     <p class="text-danger"><small>If you delete it, you can never get it back.</small></p>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <a href="{{url('/delete-comment/'.$item->id)}}" class="btn btn-danger">Delete</a>
                                 </div>
                             </div>
                         </div>

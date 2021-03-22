@@ -28,4 +28,17 @@ class CommentController extends Controller
         return redirect()->route('videoDetail',['id' => $comment->videos_id])
                         ->with(['message' => 'Comment added successfully']);
     }
+
+    public function delete($id)
+    {
+        $user = \Auth::user();
+        $comment = Comments::find($id);
+
+        if($user && ($comment->user_id == $user->id || $comment->video->id == $user->id)){
+            $comment->delete();
+        }
+
+        return redirect()->route('videoDetail',['id' => $comment->videos_id])
+                        ->with(['message' => 'Comment deleted successfully']);
+    }
 }

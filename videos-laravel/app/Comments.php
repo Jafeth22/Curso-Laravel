@@ -18,6 +18,6 @@ class Comments extends Model
     public function video()
     {
         //echo 'Inside Comments->videos';
-        return $this->belongsTo('App\Video');
+        return $this->belongsTo('App\Video', 'videos_id');
     }
 }

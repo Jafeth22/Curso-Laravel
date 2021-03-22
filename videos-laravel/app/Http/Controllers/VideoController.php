@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Iluminate\Support\Facades\DB;
-use Iluminate\Support\Facades\Storage; //Upload files and save into Storage folder
+//use Iluminate\Support\Facades\Storage; //Upload files and save into Storage folder
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 
 use App\Videos;
-use App\Comment;
+use App\Comments;
 
 class VideoController extends Controller
 {
@@ -19,10 +20,10 @@ class VideoController extends Controller
     public function saveVideo(Request $request)
     {
         date_default_timezone_set("America/Costa_Rica");
-        $validateData = $this->validate($request, [
+        $this->validate($request, [
             'title' => 'required|min:5', //This mean, that it is required and should have at least 5 letters
             'description' => 'required',
-            //'video' => 'mimes:mp4', //Specify the format of the videos
+            'video' => 'mimes:mp4', //Specify the format of the videos
         ]);
 
         $video = new Videos();
@@ -36,7 +37,7 @@ class VideoController extends Controller
         if($image){
             $imageName = date("YmdHis", time()).'-'.$image->getClientOriginalName();
             $image->storeAs('public/images',$imageName);
-            //\Storage::disk('public')->putFileAs('images', $image, $imageName);
+            //Storage::disk('public')->putFileAs('images', $image, $imageName);
             $video->image = $imageName;
         }
         //Upload the video
@@ -44,7 +45,7 @@ class VideoController extends Controller
         if($videoFile){
             $videoName = date("YmdHis", time()).'-'.$videoFile->getClientOriginalName();
             //Another way to save files, "READ Notas codigo" file
-            \Storage::disk('public')->putFileAs('videos', $videoFile, $videoName);
+            Storage::disk('public')->putFileAs('videos', $videoFile, $videoName);
             $video->videoPath = $videoName;
         }
         
@@ -67,5 +68,26 @@ class VideoController extends Controller
     {
         $video = Storage::disk('videos')->get($idVideo);
         return new Response($video,900);
+    }
+
+    public function delete($id)
+    {
+        $user = \Auth::user();
+        $video = Videos::find($id);
+
+        if($user && $video->User_Id == $user->id){
+            Comments::where('videos_id',$id)->delete();
+            Storage::disk('public')->delete('videos/'.$video->VideoPath);
+            //Storage::disk('public')->delete('images/'.$video->Image);
+            unlink(public_path('storage\\images\\'.$video->Image)); //Using Core PHP
+
+            $video->delete();
+            $message = ['messageSuccess' => 'Video deleted successfully'];
+        }else{
+            $message = ['messageSuccess' => 'Video didn\'t deleted successfully'];
+        }
+
+        return redirect()->route('home')
+                        ->with($message);
     }
 }

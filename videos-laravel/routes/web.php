@@ -65,3 +65,15 @@ Route::post('/comment',[
     'middleware' => 'auth', //This particular middleware verify if you are login
     'uses' => 'CommentController@store'
 ]);
+
+Route::get('/delete-comment/{id}',[
+    'as' => 'deleteComment',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'CommentController@delete'
+]);
+
+Route::get('/delete-video/{id}',[
+    'as' => 'deleteVideo',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'VideoController@delete'
+]);
