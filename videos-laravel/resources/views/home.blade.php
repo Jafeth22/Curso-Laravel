@@ -26,7 +26,7 @@
                             <p class="card-text"><?= $video->user->name . ' ' . $video->user->surname ?> </p>
                             <a href="" class="btn btn-success">See</a>
                             @if(Auth::check() && Auth::user()->id == $video->user->id)
-                            <a href="" class="btn btn-secondary">Edit</a>
+                            <a href="{{route('editingVideo',['id' => $video->id])}}" class="btn btn-secondary">Edit</a>
 
                             <!--HTML button (start Bootstrap modal) -->
                             <a href="#deleteVideoModal{{$video->id}}" role="button" class="btn btn-large btn-danger" data-toggle="modal">Delete</a>

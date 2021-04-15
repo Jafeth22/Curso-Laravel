@@ -36,8 +36,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-//Route videoController
+//---------------------------------------------------------------------------------------------
+//Videos
 Route::get('/create-video',[
     'as' => 'createVideo',
     'middleware' => 'auth', //This particular middleware verify if you are login
@@ -55,11 +55,30 @@ Route::get('/video/{id}',[
     'uses' => 'VideoController@getVideoDetail'
 ]);
 
-Route::get('/videoFile/{idVideo}',[
+Route::get('/videoFile/{path}',[
     'as' => 'fileVideo',
     'uses' => 'VideoController@getVideoFile'
 ]);
 
+Route::get('/delete-video/{id}',[
+    'as' => 'deleteVideo',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'VideoController@delete'
+]);
+
+Route::get('/editing-video/{id}',[
+    'as' => 'editingVideo',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'VideoController@edit'
+]);
+
+Route::post('/update-video/{id}',[
+    'as' => 'updateVideo',
+    'middleware' => 'auth', //This particular middleware verify if you are login
+    'uses' => 'VideoController@update'
+]);
+//---------------------------------------------------------------------------------------------
+// Comments
 Route::post('/comment',[
     'as' => 'comment',
     'middleware' => 'auth', //This particular middleware verify if you are login
@@ -70,10 +89,4 @@ Route::get('/delete-comment/{id}',[
     'as' => 'deleteComment',
     'middleware' => 'auth', //This particular middleware verify if you are login
     'uses' => 'CommentController@delete'
-]);
-
-Route::get('/delete-video/{id}',[
-    'as' => 'deleteVideo',
-    'middleware' => 'auth', //This particular middleware verify if you are login
-    'uses' => 'VideoController@delete'
 ]);
