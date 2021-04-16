@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <form class="navbar-form">
+                        <form class="navbar-form" action="{{url('/search')}}">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search to watch" name="search">
                                 <button type="submit" class="btn btn-default ">

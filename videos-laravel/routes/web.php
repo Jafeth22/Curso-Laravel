@@ -77,6 +77,11 @@ Route::post('/update-video/{id}',[
     'middleware' => 'auth', //This particular middleware verify if you are login
     'uses' => 'VideoController@update'
 ]);
+
+Route::get('/search/{search?}',[
+    'as' => 'searchVideo',
+    'uses' => 'VideoController@search'
+]);
 //---------------------------------------------------------------------------------------------
 // Comments
 Route::post('/comment',[

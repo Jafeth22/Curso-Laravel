@@ -143,7 +143,18 @@ class VideoController extends Controller
         return redirect()->route('home')->with([
             'messageSuccess' => 'The video has been uploaded successfully'
         ]);
-        
+    }
 
+    public function search($search = null)
+    {
+        if(is_null($search)){
+            $search = \Request::get('search');
+        }
+        $result = Videos::where('Title', 'LIKE', '%'.$search.'%')->paginate(5);
+
+        return view('video.search', [
+            'videos' => $result,
+            'search' => $search
+        ]);
     }
 }
