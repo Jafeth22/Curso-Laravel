@@ -68,7 +68,7 @@ class VideoController extends Controller
     public function getVideoFile($path)
     {
         $video = Storage::files($path);
-        
+
         // $video = Storage::disk('videos')->get($idVideo);
         // return new Response($video,900);
         return $video;
@@ -83,7 +83,8 @@ class VideoController extends Controller
             Comments::where('videos_id', $id)->delete();
             Storage::disk('public')->delete('videos/' . $video->VideoPath);
             //Storage::disk('public')->delete('images/'.$video->Image);
-            unlink(public_path('storage\\images\\' . $video->Image)); //Using Core PHP
+            //unlink(public_path('\\storage\\images\\' . $video->Image)); //Using Core PHP
+            public_path().'/images/'.$video->Image; //Using Core PHP
 
             $video->delete();
             $message = ['messageSuccess' => 'Video deleted successfully'];
@@ -102,7 +103,7 @@ class VideoController extends Controller
 
         if ($user && $video->User_Id == $user->id) {
             return view('video.edit', ['video' => $video]);
-        }else{
+        } else {
             return redirect()->route('home');
         }
     }
@@ -147,11 +148,13 @@ class VideoController extends Controller
 
     public function search($search = null)
     {
-        if(is_null($search)){
-            $search = \Request::get('search');
-        }
-        $result = Videos::where('Title', 'LIKE', '%'.$search.'%')->paginate(5);
-
+        // if (is_null($search)) {
+        //     $search = \Request::get('search');
+        //     return redirect()->route('searchVideo', ['search' => $search]);
+        // }
+        
+        $result = Videos::where('Title', 'LIKE', '%' . $search . '%')->paginate(5);
+        
         return view('video.search', [
             'videos' => $result,
             'search' => $search
