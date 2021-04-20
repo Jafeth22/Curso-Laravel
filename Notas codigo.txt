@@ -14,6 +14,9 @@ Carpetas/Archivos:
 
 •.env: Se configura la BD
 ------------------------------------------------------------------------------------------------------------
+ARTISAN
+This command will let us do several developing tasks where make the job easier and execute a bunch of commands
+
 locationFileProyect (Artisan), this command should be execute in the command line
 php artisan list //Shows all the commands
 php artisan make:controller ControllerName //This is to create a controller

@@ -98,6 +98,12 @@ Route::get('/delete-comment/{id}',[
     'uses' => 'CommentController@delete'
 ]);
 //---------------------------------------------------------------------------------------------
+// Users
+Route::get('/channel/{id}',[
+    'as' => 'channelUser',
+    'uses' => 'UserController@channel'
+]);
+//---------------------------------------------------------------------------------------------
 // Comments
 Route::get('/cacheClear', function(){
     Artisan::call('cache:clear');
