@@ -9,7 +9,7 @@
     <div class="col-md-8">
         <!-- Video -->
         <video controls="true" id="videoPlayer">
-            <!-- <source type="video/mp4" src="{{route('fileVideo', ['path' => $video->VideoPath])}}"> </source>-->
+            <!-- <source type="video/mp4" src="route('fileVideo', ['path' => $video->VideoPath])"> </source>-->
             <source src="/storage/videos/{{$video->VideoPath}}">
                 Your browser doesn't support HTML  5
             </source>

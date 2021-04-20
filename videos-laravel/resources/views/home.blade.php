@@ -10,6 +10,7 @@
                 <?= session('messageSuccess') ?>
             </div>
             @endif
+            
             @include('video.videosList')
         </div>
     </div>

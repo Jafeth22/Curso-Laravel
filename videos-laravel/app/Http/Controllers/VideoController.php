@@ -84,7 +84,7 @@ class VideoController extends Controller
             Storage::disk('public')->delete('videos/' . $video->VideoPath);
             //Storage::disk('public')->delete('images/'.$video->Image);
             //unlink(public_path('\\storage\\images\\' . $video->Image)); //Using Core PHP
-            public_path().'/images/'.$video->Image; //Using Core PHP
+            public_path() . '/images/' . $video->Image; //Using Core PHP
 
             $video->delete();
             $message = ['messageSuccess' => 'Video deleted successfully'];
@@ -146,15 +146,50 @@ class VideoController extends Controller
         ]);
     }
 
-    public function search($search = null)
+    public function search($search = null, $order = null)
     {
-        // if (is_null($search)) {
-        //     $search = \Request::get('search');
-        //     return redirect()->route('searchVideo', ['search' => $search]);
-        // }
-        
-        $result = Videos::where('Title', 'LIKE', '%' . $search . '%')->paginate(5);
-        
+        if (is_null($search)) {
+            $search = \Request::get('search');
+            if (is_null($search)) {
+                return redirect()->route('home');
+            } else {
+                return redirect()->route('searchVideo', array('search' => $search));
+            }
+        }
+
+        if (is_null($order) && \Request::get('order') && !is_null($search)) {
+            $order = \Request::get('order');
+            if (is_null($order)) {
+                return redirect()->route('home');
+            } else {
+                return redirect()->route('searchVideo', array('search' => $search, 'order' => $order));
+            }
+        }
+
+        $column = is_null($order) ? "id"  : $order;
+        $orderBy = is_null($order) ? "desc"  : $order;
+
+        if (!is_null($order)) {
+            switch ($order) {
+                case 'new':
+                    $column = "id";
+                    $orderBy = "desc";
+                    break;
+                case 'old':
+                    $column = "id";
+                    $orderBy = "asc";
+                    break;
+                case 'aToZ':
+                    $column = "Title";
+                    $orderBy = "asc";
+                    break;
+            }
+        }
+
+        $result = Videos::where('Title', 'LIKE', '%' . $search . '%')
+                                ->orderBy($column, $orderBy)
+                                ->paginate(5);
+
         return view('video.search', [
             'videos' => $result,
             'search' => $search

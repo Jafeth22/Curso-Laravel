@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Video;
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -78,7 +80,7 @@ Route::post('/update-video/{id}',[
     'uses' => 'VideoController@update'
 ]);
 
-Route::get('/search/{search?}',[
+Route::get('/search/{search?}/{order?}',[
     'as' => 'searchVideo',
     'uses' => 'VideoController@search'
 ]);
@@ -95,3 +97,8 @@ Route::get('/delete-comment/{id}',[
     'middleware' => 'auth', //This particular middleware verify if you are login
     'uses' => 'CommentController@delete'
 ]);
+//---------------------------------------------------------------------------------------------
+// Comments
+Route::get('/cacheClear', function(){
+    Artisan::call('cache:clear');
+});
