@@ -10,10 +10,11 @@
                 <h4 class="card-title">
                     <a href="{{route('videoDetail',['id' => $video->id])}}">
                         <?= $video->Title ? $video->Title : "It doesn't have Title"  ?>
+                        
                     </a>
                 </h4>
-                <p class="card-text"><?= $video->user->name . ' ' . $video->user->surname ?> </p>
-                <a href="" class="btn btn-success">See</a>
+                <p class="card-text"><a href="{{route('channelUser',['id' => $video->user->id])}}"> <?= $video->user->name . ' ' . $video->user->surname ?> </a></p>
+                <a href="{{route('videoDetail',['id' => $video->id])}}" class="btn btn-success">See</a>
                 @if(Auth::check() && Auth::user()->id == $video->user->id)
                 <a href="{{route('editingVideo',['id' => $video->id])}}" class="btn btn-secondary">Edit</a>
 
