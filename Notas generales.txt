@@ -33,3 +33,7 @@ Inside this Folder, all the files will be located inside this folder
 Timezone
 To change the timezone go to the following path:
     config->app.php, search timezone and change it
+------------------------------------------------------------------------------------------------------------
+To work succesfully the petitions, you should have to comment the following line to desactive the security web
+    api-laravel\app\Http\Kernel.php->\App\Http\Middleware\VerifyCsrfToken::class
+
